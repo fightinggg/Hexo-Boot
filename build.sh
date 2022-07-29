@@ -59,6 +59,7 @@ for(( i=0;;i++));
         # config themes
         echo 'url: http://fightinggg.github.io/'$name >> $name/_config2.yml
         echo 'root: '$PAGE_ROOT$name >> $name/_config2.yml
+        echo 'multiThemeRoot: '$PAGE_ROOT >> $name/_config2.yml
         echo 'theme: '$name >> $name/_config2.yml
         echo "permalink: ':abbrlink.html'" >> $name/_config2.yml
         echo 'index_generator:' >> $name/_config2.yml
