@@ -26,22 +26,22 @@ cp ../../hexo_config.yml hexo_config.yml
 cd ..
 
 # config
-GIT_USER_CONFIG=$(cat ../config.properties | grep 'git.user')
-GIT_EMAIL_CONFIG=$(cat ../config.properties | grep 'git.email')
-GIT_REPO_CONFIG=$(cat ../config.properties | grep 'git.repo')
-GIT_USER=${GIT_USER_CONFIG#*=}
-GIT_EMAIL=${GIT_EMAIL_CONFIG#*=}
-GIT_REPO=${GIT_REPO_CONFIG#*=}
+getConfig(){
+    CONFIG=$(cat ../config.properties | grep $1)
+    echo ${CONFIG#*=}
+}
+
+GIT_USER=$(getConfig 'git.user')
+GIT_EMAIL=$(getConfig 'git.email')
+GIT_REPO=$(getConfig 'git.repo')
+PAGE_ROOT=$(getConfig 'pages.root')
 
 
 for(( i=0;;i++));
     do 
-        nameConfig=$(cat ../config.properties | grep 'themes\['$i'\].name')
-        giturlConfig=$(cat ../config.properties | grep 'themes\['$i'\].git')
-        depConfig=$(cat ../config.properties | grep 'themes\['$i'\].dep')
-        name=${nameConfig#*=}
-        giturl=${giturlConfig#*=}
-        dep=${depConfig#*=}
+        name=$(getConfig 'themes\['$i'\].name')
+        giturl=$(getConfig 'themes\['$i'\].git')
+        dep=$(getConfig 'themes\['$i'\].repo')
         if [ ! $name ]; then
            break;
         fi
@@ -58,7 +58,7 @@ for(( i=0;;i++));
 
         # config themes
         echo 'url: http://fightinggg.github.io/'$name >> $name/_config2.yml
-        echo 'root: /'$name >> $name/_config2.yml
+        echo 'root: '$PAGE_ROOT$name >> $name/_config2.yml
         echo 'theme: '$name >> $name/_config2.yml
         echo "permalink: ':abbrlink.html'" >> $name/_config2.yml
         echo 'index_generator:' >> $name/_config2.yml
