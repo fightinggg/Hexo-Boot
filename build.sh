@@ -120,7 +120,7 @@ git config --global user.name $GIT_USER
 git config --global user.email $GIT_EMAIL
 
 # Copy ReadMe
-cp ../../README.md _target/README.me
+cp ../../README.md _target/README.md
 
 cd _target
 git init  > /dev/null 2>&1
