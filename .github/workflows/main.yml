@@ -14,10 +14,10 @@ on:
       - 'master'
 
 env:
-  app: fightinggg/hexoblogdeploy
+  app: fightinggg/hexo-boot
   dockerhub_username: fightinggg
   dockerhub_password: ${{ secrets.DOCKERHUB_PASSWORD }}
-  short_description: '😊 https://github.com/fightinggg/hexoblogdeploy'
+  short_description: '😊 https://github.com/fightinggg/Hexo-Boot'
   readme_file: 'README.md'
   Dockerfile: 'Dockerfile'
 
