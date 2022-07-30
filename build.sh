@@ -90,14 +90,14 @@ for(( i=0;;i++));
         echo npm i ${dep//,/ }
         npm i ${dep//,/ } > /dev/null 2>&1
         echo 'theme '$name' add depend success...'
-        mkdir -p _target/$name
-        hexo --config  defaultConfig.yml,_config_multi.yml,_config_main.yml,hexo_config.yml,_config.yml g > _target/$name/install.log 2>&1
+        hexo --config  defaultConfig.yml,_config_multi.yml,_config_main.yml,hexo_config.yml,_config.yml g > install.log 2>&1
         echo 'theme '$name' build success...'
         cd ..
 
         # build 
         mkdir -p _target/$name
         cp -r $name/public/* _target/$name
+        cp $name/install.log _target/$name/install.log.txt
     done
 
 
