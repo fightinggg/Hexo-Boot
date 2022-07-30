@@ -90,7 +90,8 @@ for(( i=0;;i++));
         echo npm i ${dep//,/ }
         npm i ${dep//,/ } > /dev/null 2>&1
         echo 'theme '$name' add depend success...'
-        hexo --config  defaultConfig.yml,_config_multi.yml,_config_main.yml,hexo_config.yml,_config.yml g --silent 
+        mkdir -p _target/$name
+        hexo --config  defaultConfig.yml,_config_multi.yml,_config_main.yml,hexo_config.yml,_config.yml g > _target/$name/install.log 2>&1
         echo 'theme '$name' build success...'
         cd ..
 
