@@ -6,7 +6,7 @@ RUN sed -i 's/mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-* \
 && yum makecache
 
 RUN yum install -y nodejs git
-RUN npm i hexo n -g && n stable
+RUN npm i hexo n -g && n 12.0.0
 RUN curl https://github.com/jgm/pandoc/releases/download/2.14.0.3/pandoc-2.14.0.3-linux-amd64.tar.gz -L -o pandoc.tar.gz \
  && tar -zxf pandoc.tar.gz && rm -f pandoc.tar.gz
 ENV PATH="/pandoc-2.14.0.3/bin:${PATH}"
