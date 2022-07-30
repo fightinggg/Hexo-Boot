@@ -50,7 +50,8 @@ for(( i=0;;i++));
         fi
         allThemes=$allThemes,$name
     done
-allThemes=${url: 3}
+allThemes=${allThemes: 3}
+echo 'allThemes: '$allThemes
 
 
 for(( i=0;;i++));
@@ -80,7 +81,7 @@ for(( i=0;;i++));
         echo "permalink: ':abbrlink.html'" >> $name/_config_multi.yml
         echo 'index_generator:' >> $name/_config_multi.yml
         echo '  order_by: -updated' >> $name/_config_multi.yml
-        echo 'multiTheme: $allThemes' >> $name/_config_multi.yml
+        echo 'multiTheme: '$allThemes >> $name/_config_multi.yml
         
         # config main theme themes
         if [ $MAIN_THEMES_NAME ==  $name ]; then
