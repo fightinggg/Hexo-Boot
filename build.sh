@@ -42,7 +42,7 @@ for(( i=0;;i++));
     do 
         name=$(getConfig 'themes\['$i'\].name')
         giturl=$(getConfig 'themes\['$i'\].git')
-        dep=$(getConfig 'themes\['$i'\].repo')
+        dep=$(getConfig 'themes\['$i'\].rep')
         if [ ! $name ]; then
            break;
         fi
