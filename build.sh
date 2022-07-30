@@ -57,13 +57,16 @@ for(( i=0;;i++));
         git clone -b master --depth=1 $giturl $name/themes/$name > /dev/null 2>&1
 
         # config themes
-        echo 'url: http://fightinggg.github.io/'$name >> $name/_config2.yml
-        echo 'root: '$PAGE_ROOT$name >> $name/_config2.yml
-        echo 'multiThemeRoot: '$PAGE_ROOT >> $name/_config2.yml
-        echo 'theme: '$name >> $name/_config2.yml
-        echo "permalink: ':abbrlink.html'" >> $name/_config2.yml
-        echo 'index_generator:' >> $name/_config2.yml
-        echo '  order_by: -updated' >> $name/_config2.yml
+        echo 'url: http://fightinggg.github.io/'$name >> $name/_config_multi.yml
+        echo 'root: '$PAGE_ROOT$name >> $name/_config_multi.yml
+        echo 'multiThemeRoot: '$PAGE_ROOT >> $name/_config_multi.yml
+        echo 'theme: '$name >> $name/_config_multi.yml
+        echo "permalink: ':abbrlink.html'" >> $name/_config_multi.yml
+        echo 'index_generator:' >> $name/_config_multi.yml
+        echo '  order_by: -updated' >> $name/_config_multi.yml
+        
+        # config main theme themes
+        echo 'root: '$PAGE_ROOT >> $name/_config_main.yml
 
         # merge user cumtom themes
         cp -r ../$name/* $name > /dev/null 2>&1
@@ -83,7 +86,7 @@ for(( i=0;;i++));
         echo npm i ${dep//,/ }
         npm i ${dep//,/ } > /dev/null 2>&1
         echo 'theme '$name' add depend success...'
-        hexo --config  defaultConfig.yml,hexo_config.yml,_config2.yml,_config.yml g --silent 
+        hexo --config  defaultConfig.yml,_config_multi.yml,_config_main.yml,hexo_config.yml,_config.yml g --silent 
         echo 'theme '$name' build success...'
         cd ..
 
