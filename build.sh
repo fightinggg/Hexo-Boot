@@ -35,6 +35,7 @@ GIT_USER=$(getConfig 'git.user')
 GIT_EMAIL=$(getConfig 'git.email')
 GIT_REPO=$(getConfig 'git.repo')
 PAGE_ROOT=$(getConfig 'pages.root')
+MAIN_THEMES_NAME=$(getConfig 'main.themes.name')
 
 
 for(( i=0;;i++));
@@ -66,7 +67,10 @@ for(( i=0;;i++));
         echo '  order_by: -updated' >> $name/_config_multi.yml
         
         # config main theme themes
-        echo 'root: '$PAGE_ROOT >> $name/_config_main.yml
+        if [ $MAIN_THEMES_NAME ==  $name ]; then
+           echo 'root: '$PAGE_ROOT >> $name/_config_main.yml
+        fi
+        
 
         # merge user cumtom themes
         cp -r ../$name/* $name > /dev/null 2>&1
@@ -96,11 +100,10 @@ for(( i=0;;i++));
     done
 
 
-mainNameConfig=$(cat ../config.properties | grep 'main.themes.name')
-mainName=${mainNameConfig#*=}
-if [ $mainName ]; then
-   echo 'main themes: '$mainName
-   cp -r _target/$mainName/* _target
+
+if [ $MAIN_THEMES_NAME ]; then
+   echo 'main themes: '$MAIN_THEMES_NAME
+   cp -r _target/$MAIN_THEMES_NAME/* _target
    find ../../blog/* -name "*.*g" -exec cp {} _target \;
 fi
 
