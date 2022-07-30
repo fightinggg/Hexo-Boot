@@ -102,7 +102,7 @@ for(( i=0;;i++));
         
         # For Debug
         mkdir -p _target/$name/debug
-        cd $name/_multiconfig.yml _target/$name/debug/_multiconfig.yml
+        cp $name/_multiconfig.yml _target/$name/debug/_multiconfig.yml
         cp $name/install.log _target/$name/debug/install.log.txt
     done
 
