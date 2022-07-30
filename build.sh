@@ -24,6 +24,8 @@ hexo init  > /dev/null 2>&1
 # hexo new friends -p friends/index.md
 npm i hexo-fightinggg-enhancer
 mv _config.yml defaultConfig.yml 
+touch _config.yml
+touch _config_main.yml
 cp ../../hexo_config.yml hexo_config.yml 
 cd ..
 
