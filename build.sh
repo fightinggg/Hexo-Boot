@@ -99,7 +99,11 @@ for(( i=0;;i++));
         # build 
         mkdir -p _target/$name
         cp -r $name/public/* _target/$name
-        cp $name/install.log _target/$name/install.log.txt
+        
+        # For Debug
+        mkdir -p _target/$name/debug
+        cd $name/_multiconfig.yml _target/$name/debug/_multiconfig.yml
+        cp $name/install.log _target/$name/debug/install.log.txt
     done
 
 
