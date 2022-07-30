@@ -40,6 +40,17 @@ GIT_EMAIL=$(getConfig 'git.email')
 GIT_REPO=$(getConfig 'git.repo')
 PAGE_ROOT=$(getConfig 'pages.root')
 MAIN_THEMES_NAME=$(getConfig 'main.themes.name')
+allThemes='hi'
+
+for(( i=0;;i++));
+    do 
+        name=$(getConfig 'themes\['$i'\].name')
+        if [ ! $name ]; then
+           break;
+        fi
+        allThemes=$allThemes,$name
+    done
+allThemes=${url: 3}
 
 
 for(( i=0;;i++));
@@ -69,6 +80,7 @@ for(( i=0;;i++));
         echo "permalink: ':abbrlink.html'" >> $name/_config_multi.yml
         echo 'index_generator:' >> $name/_config_multi.yml
         echo '  order_by: -updated' >> $name/_config_multi.yml
+        echo 'multiTheme: $allThemes' >> $name/_config_multi.yml
         
         # config main theme themes
         if [ $MAIN_THEMES_NAME ==  $name ]; then
