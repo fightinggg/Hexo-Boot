@@ -62,7 +62,7 @@ for(( i=0;;i++));
         git clone -b master --depth=1 $giturl $name/themes/$name > /dev/null 2>&1
 
         # config themes
-        echo 'url: http://fightinggg.github.io/'$name >> $name/_config_multi.yml
+        echo 'url: http://fightinggg.github.io/'$PAGE_ROOT$name >> $name/_config_multi.yml
         echo 'root: '$PAGE_ROOT$name >> $name/_config_multi.yml
         echo 'multiThemeRoot: '$PAGE_ROOT >> $name/_config_multi.yml
         echo 'theme: '$name >> $name/_config_multi.yml
