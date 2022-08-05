@@ -96,7 +96,7 @@ for(( i=0;;i++));
 
         # add blogs
         cp -r ../../blog/* $name/source/_posts
-        rm -rf $name/source/_posts/ACM $name/source/_posts/index.json $name/source/_posts/hello-world.md 
+        rm -rf $name/source/_posts/index.json $name/source/_posts/hello-world.md 
         # cp -r .deploy/hexo-next/source/tags .deploy/multiblog/$name/source/tags
         # cp -r .deploy/hexo-next/source/fightinggg .deploy/multiblog/$name/source/about
         # cp -r .deploy/hexo-next/source/categories .deploy/multiblog/$name/source/categories
